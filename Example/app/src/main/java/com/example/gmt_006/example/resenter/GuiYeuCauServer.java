@@ -1,5 +1,9 @@
 package com.example.gmt_006.example.resenter;
 
+import com.example.gmt_006.example.User;
+
+import java.util.List;
+
 import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -19,5 +23,9 @@ public interface GuiYeuCauServer {
     Call<String> InsertData (@Field("username") String taikhoan,
                              @Field("password") String matkhau,
                              @Field("image") String hinhanh);
+    @FormUrlEncoded
+    @POST("login.php")
+    Call<List<User>> getUserloginData(@Field("username") String username,
+                                      @Field("password") String password);
 
 }
