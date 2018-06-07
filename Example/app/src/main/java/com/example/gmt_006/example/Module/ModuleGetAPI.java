@@ -29,15 +29,19 @@ import retrofit2.Call;
 import retrofit2.Callback;
 
 public class ModuleGetAPI {
-        public void GETlistapi(final RecyclerView recyclerView, final Context context){
-            GuiYeuCauServer dataclient = APIUtil.getData();
-            Call<List<API>> callapi = dataclient.getAPIData();
-            callapi.enqueue(new Callback<List<API>>() {
+        public void GETlistapi(final RecyclerView recyclerView, final ApiAdapter apiAdapter){
+
+
+            GuiYeuCauServer guiYeuCauServer = APIUtil.getData();
+            Call<List<API>> callbackAPI = guiYeuCauServer.getAPIData();
+
+            callbackAPI.enqueue(new Callback<List<API>>() {
                 @Override
                 public void onResponse(Call<List<API>> call, retrofit2.Response<List<API>> response) {
-                    ApiActivity.mangapi  = (ArrayList<API>) response.body();
+                   ApiActivity.mangapi = (ArrayList<API>) response.body();
+                   apiAdapter.notifyDataSetChanged();
+                   recyclerView.setAdapter(apiAdapter);
 
-                    Toast.makeText(context,response.body().toString(),Toast.LENGTH_LONG).show();
                 }
 
                 @Override
@@ -45,5 +49,22 @@ public class ModuleGetAPI {
 
                 }
             });
+
+
+//            GuiYeuCauServer dataclient = APIUtil.getData();
+//            Call<List<API>> callapi = dataclient.getAPIData();
+//            callapi.enqueue(new Callback<List<API>>() {
+//                @Override
+//                public void onResponse(Call<List<API>> call, retrofit2.Response<List<API>> response) {
+//                    ApiActivity.mangapi  = (ArrayList<API>) response.body();
+//
+//                    Toast.makeText(context,response.body().toString(),Toast.LENGTH_LONG).show();
+//                }
+//
+//                @Override
+//                public void onFailure(Call<List<API>> call, Throwable t) {
+//
+//                }
+//            });
         }
 }

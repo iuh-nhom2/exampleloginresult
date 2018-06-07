@@ -43,6 +43,9 @@ public class MainActivity extends AppCompatActivity implements ViewLogin {
             public void onClick(View v) {
                 username = edtuser.getText().toString();
                 password = edtpass.getText().toString();
+                presenterLogin.RequestLogin(username,password);
+
+                //dung http volley
 //                if(username.length() >0 && password.length()>0){
 //                    GuiYeuCauServer dataclient = APIUtil.getData();
 //                    retrofit2.Call<List<User>> callbackdatalogin = dataclient.getUserloginData(username,password);
@@ -66,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements ViewLogin {
 //                        }
 //                    });
 //                }
-                presenterLogin.RequestLogin(username,password);
+
             }
         });
 

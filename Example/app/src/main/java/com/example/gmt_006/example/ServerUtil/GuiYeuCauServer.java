@@ -1,6 +1,7 @@
 package com.example.gmt_006.example.ServerUtil;
 
 import com.example.gmt_006.example.Model.API;
+import com.example.gmt_006.example.Model.APILIST;
 import com.example.gmt_006.example.Model.User;
 
 import java.util.List;
@@ -29,7 +30,8 @@ public interface GuiYeuCauServer {
     @POST("login.php")
     Call<List<User>> getUserloginData(@Field("username") String username,
                                       @Field("password") String password);
-    @FormUrlEncoded
+
+
     @GET("getAPI.php")
     Call<List<API>> getAPIData();
 }

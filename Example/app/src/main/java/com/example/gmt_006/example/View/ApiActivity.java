@@ -3,7 +3,9 @@ package com.example.gmt_006.example.View;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -13,11 +15,14 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.gmt_006.example.Adapter.ApiAdapter;
 import com.example.gmt_006.example.Model.API;
+import com.example.gmt_006.example.Model.APILIST;
+import com.example.gmt_006.example.Model.User;
 import com.example.gmt_006.example.Presenter.PresenterGetApi;
 import com.example.gmt_006.example.R;
 import com.example.gmt_006.example.ServerUtil.APIUtil;
 import com.example.gmt_006.example.ServerUtil.CheckConnection;
 import com.example.gmt_006.example.ServerUtil.GuiYeuCauServer;
+import com.example.gmt_006.example.ServerUtil.RetrofitClient;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -46,26 +51,37 @@ public class ApiActivity extends AppCompatActivity {
             CheckConnection.thongbao(getApplicationContext(),"The internet not connected");
             finish();
         }
+
     }
 
     private void GetAPI() {
-        presenterGetApi = new PresenterGetApi();
+
+//
+//        presenterGetApi = new PresenterGetApi();
+//        presenterGetApi.RequestgetAPI(recyclerViewapi,apiAdapter);
+
+
         GuiYeuCauServer guiYeuCauServer = APIUtil.getData();
-        Call<List<API>> calllistapi = guiYeuCauServer.getAPIData();
-        calllistapi.enqueue(new Callback<List<API>>() {
-            @Override
-            public void onResponse(Call<List<API>> call, retrofit2.Response<List<API>> response) {
+         Call<List<API>> callbackAPI = guiYeuCauServer.getAPIData();
+         Toast.makeText(ApiActivity.this,callbackAPI.toString(),Toast.LENGTH_LONG).show();
+            callbackAPI.enqueue(new Callback<List<API>>() {
+                @Override
+                public void onResponse(Call<List<API>> call, retrofit2.Response<List<API>> response) {
                     mangapi = (ArrayList<API>) response.body();
-                    for(int i = 0; i<=mangapi.size();i++) {
-                        Toast.makeText(ApiActivity.this,mangapi.get(i).toString(),Toast.LENGTH_LONG).show();
-                    }
-            }
+                    apiAdapter = new ApiAdapter(getApplicationContext(),mangapi);
+                    apiAdapter.notifyDataSetChanged();
+                    recyclerViewapi.setAdapter(apiAdapter);
+                }
 
-            @Override
-            public void onFailure(Call<List<API>> call, Throwable t) {
+                @Override
+                public void onFailure(Call<List<API>> call, Throwable t) {
 
-            }
-        });
+                }
+            });
+
+
+
+
         //volley
 //        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
 //        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(APIUtil.url_base + "getAPI.php", new Response.Listener<JSONArray>() {
@@ -104,7 +120,7 @@ public class ApiActivity extends AppCompatActivity {
     private void Anhxa() {
         recyclerViewapi =(RecyclerView) findViewById(R.id.recyclerview);
         mangapi = new ArrayList<>();
-        apiAdapter = new ApiAdapter(getApplicationContext(),mangapi);
+        recyclerViewapi.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewapi.setHasFixedSize(true);
         recyclerViewapi.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));
 
