@@ -8,7 +8,6 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,21 +15,11 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.gmt_006.example.R;
-import com.example.gmt_006.example.ServerUtil.APIUtil;
-import com.example.gmt_006.example.ServerUtil.GuiYeuCauServer;
 import com.example.gmt_006.example.ViewRigiter;
-import com.example.gmt_006.example.resenter.PresenterCreateAcount;
+import com.example.gmt_006.example.Presenter.PresenterCreateAcount;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class RigisterActivity extends AppCompatActivity implements ViewRigiter{
     Button btnregister;
@@ -55,6 +44,7 @@ public class RigisterActivity extends AppCompatActivity implements ViewRigiter{
                 startActivityForResult(intent,Request_Code_Image);
             }
         });
+
         btnregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

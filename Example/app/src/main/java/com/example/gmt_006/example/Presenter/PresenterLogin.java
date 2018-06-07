@@ -1,4 +1,4 @@
-package com.example.gmt_006.example.resenter;
+package com.example.gmt_006.example.Presenter;
 
 import com.example.gmt_006.example.Module.InterfaceLoginRequest;
 import com.example.gmt_006.example.Module.ModuleLogin;

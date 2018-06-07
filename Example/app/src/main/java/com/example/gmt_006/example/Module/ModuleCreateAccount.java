@@ -1,21 +1,12 @@
 package com.example.gmt_006.example.Module;
 
 import android.util.Log;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.gmt_006.example.User;
-import com.example.gmt_006.example.View.MainActivity;
 import com.example.gmt_006.example.ServerUtil.APIUtil;
 import com.example.gmt_006.example.ServerUtil.GuiYeuCauServer;
 import com.example.gmt_006.example.View.RigisterActivity;
-import com.example.gmt_006.example.resenter.PresenterGetInforUser;
-import com.squareup.picasso.Picasso;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;

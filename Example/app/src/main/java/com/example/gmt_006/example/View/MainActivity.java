@@ -10,9 +10,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gmt_006.example.R;
-import com.example.gmt_006.example.User;
+import com.example.gmt_006.example.Model.User;
 import com.example.gmt_006.example.ViewLogin;
-import com.example.gmt_006.example.resenter.PresenterLogin;
+import com.example.gmt_006.example.Presenter.PresenterLogin;
 
 import java.util.ArrayList;
 

@@ -2,7 +2,7 @@ package com.example.gmt_006.example.Module;
 
 import android.util.Log;
 
-import com.example.gmt_006.example.User;
+import com.example.gmt_006.example.Model.User;
 import com.example.gmt_006.example.View.MainActivity;
 import com.example.gmt_006.example.ServerUtil.APIUtil;
 import com.example.gmt_006.example.ServerUtil.GuiYeuCauServer;

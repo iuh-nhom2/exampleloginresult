@@ -1,12 +1,10 @@
-package com.example.gmt_006.example.resenter;
+package com.example.gmt_006.example.Presenter;
 
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.gmt_006.example.Module.InterfaceCreateAccount;
 import com.example.gmt_006.example.Module.ModulegetData;
-import com.example.gmt_006.example.User;
-import com.example.gmt_006.example.ViewProFile;
+import com.example.gmt_006.example.Model.User;
 import com.example.gmt_006.example.ViewRigiter;
 
 import java.util.ArrayList;

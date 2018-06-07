@@ -3,26 +3,18 @@ package com.example.gmt_006.example.View;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.gmt_006.example.Module.ModuleCreateAccount;
-import com.example.gmt_006.example.Module.ModulegetData;
 import com.example.gmt_006.example.R;
-import com.example.gmt_006.example.User;
-import com.example.gmt_006.example.ViewProFile;
-import com.example.gmt_006.example.resenter.PresenterGetInforUser;
-import com.squareup.picasso.Picasso;
-
-import java.util.ArrayList;
+import com.example.gmt_006.example.Presenter.PresenterGetInforUser;
 
 public class InformationLoginActivity extends AppCompatActivity  {
     ImageView imguserlogin;
     TextView username,password;
-    Button logout;
+    Button logout,xemapi;
     PresenterGetInforUser presenterGetInforUser;
   // public static ArrayList<User> userloginArrayList;
     @Override
@@ -45,6 +37,13 @@ public class InformationLoginActivity extends AppCompatActivity  {
 
             }
         });
+        xemapi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(InformationLoginActivity.this,ApiActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -62,6 +61,7 @@ public class InformationLoginActivity extends AppCompatActivity  {
         username = findViewById(R.id.txtuserid);
         password = findViewById(R.id.txtpassword);
         logout = findViewById(R.id.btnlogout);
+        xemapi = findViewById(R.id.btnXemAPI);
     }
 
 

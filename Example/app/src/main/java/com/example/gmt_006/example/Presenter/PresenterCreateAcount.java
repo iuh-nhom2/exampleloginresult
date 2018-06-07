@@ -1,10 +1,7 @@
-package com.example.gmt_006.example.resenter;
-
-import android.widget.ImageView;
+package com.example.gmt_006.example.Presenter;
 
 import com.example.gmt_006.example.Module.InterfaceCreateAccount;
 import com.example.gmt_006.example.Module.ModuleCreateAccount;
-import com.example.gmt_006.example.ViewLogin;
 import com.example.gmt_006.example.ViewRigiter;
 
 public class PresenterCreateAcount implements InterfaceCreateAccount {

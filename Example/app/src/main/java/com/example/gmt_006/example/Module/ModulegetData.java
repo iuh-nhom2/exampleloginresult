@@ -1,11 +1,10 @@
 package com.example.gmt_006.example.Module;
 
-import android.content.Intent;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.gmt_006.example.User;
+import com.example.gmt_006.example.Model.User;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
